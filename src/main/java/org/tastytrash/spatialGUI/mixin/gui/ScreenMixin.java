@@ -11,10 +11,10 @@ import org.tastytrash.spatialGUI.client.SpatialGUIClient;
 @Mixin(Screen.class)
 public class ScreenMixin {
     //? if >=26.1.2 {
-    @Inject(method = "extractTransparentBackground", at = @At("HEAD"), cancellable = true)
-            //?} else {
-    /*@Inject(method = "renderTransparentBackground", at = @At("HEAD"), cancellable = true)
-     *///?}
+    /*@Inject(method = "extractTransparentBackground", at = @At("HEAD"), cancellable = true)
+            *///?} else {
+    @Inject(method = "renderTransparentBackground", at = @At("HEAD"), cancellable = true)
+     //?}
     private void spatialGUI$removeBackgroundOverlay(CallbackInfo ci) {
         if (SpatialGUIClient.renderer().shouldCapture() && SpatialGUI.config.enabled) {
             ci.cancel();

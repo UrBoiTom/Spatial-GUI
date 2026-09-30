@@ -17,14 +17,14 @@ public class WindowMixin {
 
     @ModifyReturnValue(method = "getGuiScale", at = @At("RETURN"))
     //? if >1.21.1 {
-    private int spatialGUI$overrideGuiScale(int original) {
+    /*private int spatialGUI$overrideGuiScale(int original) {
         return shouldOverride() ? getGuiScale() : original;
     }
-    //?} else {
-    /*private double spatialGUI$overrideGuiScale(double original) {
+    *///?} else {
+    private double spatialGUI$overrideGuiScale(double original) {
         return shouldOverride() ? (double) getGuiScale() : original;
     }
-    *///?}
+    //?}
 
     @ModifyReturnValue(method = "getGuiScaledWidth", at = @At("RETURN"))
     private int spatialGUI$overrideScaledWidth(int original) {

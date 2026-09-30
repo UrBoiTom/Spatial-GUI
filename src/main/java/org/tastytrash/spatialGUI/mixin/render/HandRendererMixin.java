@@ -12,10 +12,10 @@ import net.minecraft.client.renderer.ItemInHandRenderer;
 //? }
 
 //? if >1.21.1 {
-import net.minecraft.client.renderer.SubmitNodeCollector;
- //?} else {
-/*import net.minecraft.client.renderer.MultiBufferSource;
-*///?}
+/*import net.minecraft.client.renderer.SubmitNodeCollector;
+ *///?} else {
+import net.minecraft.client.renderer.MultiBufferSource;
+//?}
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -55,7 +55,7 @@ public class HandRendererMixin {
         }
     }
     *///?} else if >1.21.1 {
-    @Inject(method = "renderArmWithItem", at = @At("HEAD"), cancellable = true)
+    /*@Inject(method = "renderArmWithItem", at = @At("HEAD"), cancellable = true)
     private void spatialGUI$hideShield(AbstractClientPlayer player, float frameInterp, float xRot, InteractionHand hand, float attack, ItemStack itemStack, float inverseArmHeight, PoseStack poseStack, SubmitNodeCollector submitNodeCollector, int lightCoords, CallbackInfo ci) {
         if (itemStack.getItem() == Items.SHIELD) {
             var renderer = SpatialGUIClient.renderer();
@@ -64,8 +64,8 @@ public class HandRendererMixin {
             }
         }
     }
-    //?} else {
-    /*@Inject(method = "renderArmWithItem", at = @At("HEAD"), cancellable = true)
+    *///?} else {
+    @Inject(method = "renderArmWithItem", at = @At("HEAD"), cancellable = true)
     private void spatialGUI$hideShield(AbstractClientPlayer player, float frameInterp, float xRot, InteractionHand hand, float attack, ItemStack itemStack, float inverseArmHeight, PoseStack poseStack, MultiBufferSource buffer, int lightCoords, CallbackInfo ci) {
         if (itemStack.getItem() == Items.SHIELD) {
             var renderer = SpatialGUIClient.renderer();
@@ -74,6 +74,6 @@ public class HandRendererMixin {
             }
         }
     }
-    *///?}
+    //?}
 }
 //? }

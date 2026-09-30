@@ -52,7 +52,7 @@ public class MouseHandlerUtil {
         return Double.isNaN(val) ? fallback : val;
     }
     //? if >26.2 || <1.21.11{
-    /*private static double freeLookDeltaX = 0;
+    private static double freeLookDeltaX = 0;
     private static double freeLookDeltaY = 0;
 
     public static void addFreeLookDelta(double xrel, double yrel) {
@@ -66,7 +66,7 @@ public class MouseHandlerUtil {
         freeLookDeltaY = 0;
         return result;
     }
-    *///? }
+    //? }
 
     public static void grabMouseForFirstPerson() {
         Minecraft mc = Minecraft.getInstance();
@@ -78,7 +78,7 @@ public class MouseHandlerUtil {
             //? if >26.2 {
             /*InputConstants.grabMouse(mc.getWindow(), centerX, centerY);
             *///?} else {
-             InputConstants.grabOrReleaseMouse(mc.getWindow(), InputConstants.CURSOR_DISABLED, centerX, centerY);
+             InputConstants.grabOrReleaseMouse(mc.getWindow().getWindow(), InputConstants.CURSOR_DISABLED, centerX, centerY);
             //?}
             mc.mouseHandler.setIgnoreFirstMove();
         }
@@ -96,7 +96,7 @@ public class MouseHandlerUtil {
             //? if >26.2 {
             /*InputConstants.releaseMouse(mc.getWindow(), centerX, centerY);
             *///?} else {
-             InputConstants.grabOrReleaseMouse(mc.getWindow(), InputConstants.CURSOR_NORMAL, centerX, centerY);
+             InputConstants.grabOrReleaseMouse(mc.getWindow().getWindow(), InputConstants.CURSOR_NORMAL, centerX, centerY);
             //?}
         }
         weGrabbedMouse = false;

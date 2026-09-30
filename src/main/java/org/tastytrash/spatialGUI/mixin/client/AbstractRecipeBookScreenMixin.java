@@ -1,7 +1,7 @@
 package org.tastytrash.spatialGUI.mixin.client;
 
 //? if >=26.1.2 {
-import net.minecraft.client.gui.GuiGraphicsExtractor;
+/*import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.screens.inventory.AbstractRecipeBookScreen;
 import net.minecraft.client.gui.screens.recipebook.RecipeBookComponent;
@@ -52,7 +52,7 @@ public class AbstractRecipeBookScreenMixin {
         }
     }
 }
-//?} else if >1.21.1 {
+*///?} else if >1.21.1 {
 /*import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.screens.inventory.AbstractRecipeBookScreen;
@@ -105,7 +105,7 @@ public class AbstractRecipeBookScreenMixin {
     }
 }
 *///?} else {
-/*import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.screens.inventory.AbstractFurnaceScreen;
 import net.minecraft.client.gui.screens.inventory.CraftingScreen;
@@ -157,4 +157,4 @@ public class AbstractRecipeBookScreenMixin {
         }
     }
 }
-*///?}
+//?}

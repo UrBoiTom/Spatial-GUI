@@ -22,11 +22,11 @@ public class TextureTargetManager {
         }
 
         //? if <1.21.11 {
-        /*// Transparent black, depth handled by RenderTarget.clear
+        // Transparent black, depth handled by RenderTarget.clear
         inventoryTarget.setClearColor(0.0F, 0.0F, 0.0F, 0.0F);
         inventoryTarget.clear(Minecraft.ON_OSX);
-        *///?} else {
-        var colorTexture = inventoryTarget.getColorTexture();
+        //?} else {
+        /*var colorTexture = inventoryTarget.getColorTexture();
         var depthTexture = inventoryTarget.getDepthTexture();
 
         if (colorTexture == null) {
@@ -35,18 +35,18 @@ public class TextureTargetManager {
 
         var encoder = RenderSystem.getDevice().createCommandEncoder();
         //? if >=26.2 {
-        /*encoder.clearColorTexture(colorTexture, new Vector4f(0.0F, 0.0F, 0.0F, 0.0F));
+        /^encoder.clearColorTexture(colorTexture, new Vector4f(0.0F, 0.0F, 0.0F, 0.0F));
         if (depthTexture != null) {
             encoder.clearDepthTexture(depthTexture, 1.0);
         }
-        *///?} else {
+        ^///?} else {
         if (depthTexture != null) {
             encoder.clearColorAndDepthTextures(colorTexture, 0, depthTexture, 1.0);
         } else {
             encoder.clearColorTexture(colorTexture, 0);
         }
         //?}
-        //?}
+        *///?}
     }
 
     public void prepareTarget() {
@@ -64,32 +64,32 @@ public class TextureTargetManager {
 
         if (inventoryTarget == null) {
             //? if <1.21.11 {
-            /*inventoryTarget = new TextureTarget(width, height, true, Minecraft.ON_OSX);
-            *///?} else {
-            inventoryTarget = new TextureTarget(
+            inventoryTarget = new TextureTarget(width, height, true, Minecraft.ON_OSX);
+            //?} else {
+            /*inventoryTarget = new TextureTarget(
                     "Spatial GUI Inventory",
                     width,
                     height,
                     //? if >26.2 {
-                    /*GpuFormat.RGBA8_UNORM,
+                    /^GpuFormat.RGBA8_UNORM,
                     GpuFormat.D16_UNORM
-                    *///?} else if 26.2 {
-                    /*true,
+                    ^///?} else if 26.2 {
+                    /^true,
                     GpuFormat.RGBA8_UNORM
-                    *///?} else {
+                    ^///?} else {
                     true
                     //?}
             );
-            //?}
+            *///?}
             return;
         }
 
         if (inventoryTarget.width != width || inventoryTarget.height != height) {
             //? if <1.21.11 {
-            /*inventoryTarget.resize(width, height, Minecraft.ON_OSX);
-            *///?} else {
-            inventoryTarget.resize(width, height);
-             //?}
+            inventoryTarget.resize(width, height, Minecraft.ON_OSX);
+            //?} else {
+            /*inventoryTarget.resize(width, height);
+             *///?}
         }
     }
 

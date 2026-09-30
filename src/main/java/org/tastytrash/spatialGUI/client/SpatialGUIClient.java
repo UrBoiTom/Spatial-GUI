@@ -7,20 +7,20 @@ import org.tastytrash.spatialGUI.SpatialGUI;
  /*import net.fabricmc.api.ClientModInitializer;
  import net.fabricmc.fabric.api.client.screen.v1.ScreenEvents;
 *///? } else if neoforge {
-import net.neoforged.neoforge.client.event.ScreenEvent;
+/*import net.neoforged.neoforge.client.event.ScreenEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.fml.common.Mod;
-//? }
+*///? }
 
 //? if fabric {
  /*public class SpatialGUIClient implements ClientModInitializer {
 *///? } else if neoforge {
-@Mod(value = SpatialGUI.MOD_ID, dist = Dist.CLIENT)
+/*@Mod(value = SpatialGUI.MOD_ID, dist = Dist.CLIENT)
 public class SpatialGUIClient {
-//? }
+*///? }
 
     private static SpatialGUIRenderer renderer;
     private static boolean effectiveFirstPersonMode = false;
@@ -37,7 +37,7 @@ public class SpatialGUIClient {
         });
     }
     *///? } else if neoforge {
-    public SpatialGUIClient() {
+    /*public SpatialGUIClient() {
         renderer = new SpatialGUIRenderer();
 
         NeoForge.EVENT_BUS.addListener(this::onScreenInit);
@@ -50,7 +50,7 @@ public class SpatialGUIClient {
             renderer.hookScreen(screen);
         }
     }
-    //?}
+    *///?}
 
     public static SpatialGUIRenderer renderer() {
         return renderer;

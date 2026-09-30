@@ -13,23 +13,23 @@ import org.tastytrash.spatialGUI.SpatialGUI;
 import org.tastytrash.spatialGUI.client.SpatialGUIClient;
 
 //? if >=1.21.11 {
-import net.minecraft.client.input.MouseButtonInfo;
-//?}
+/*import net.minecraft.client.input.MouseButtonInfo;
+*///?}
 
 @Mixin(MouseHandler.class)
 public class MouseHandlerSwingMixin {
 
     //? if >=1.21.11 {
-    @Inject(method = "onButton", at = @At("HEAD"))
+    /*@Inject(method = "onButton", at = @At("HEAD"))
     private void spatialGUI$swingOnClick(long handle, MouseButtonInfo rawButtonInfo, int action, CallbackInfo ci) {
         spatialGUI$trySwing(action);
     }
-    //?} else {
-    /*@Inject(method = "onPress", at = @At("HEAD"))
+    *///?} else {
+    @Inject(method = "onPress", at = @At("HEAD"))
     private void spatialGUI$swingOnClick(long handle, int button, int action, int mods, CallbackInfo ci) {
         spatialGUI$trySwing(action);
     }
-    *///?}
+    //?}
 
     @Unique
     private static void spatialGUI$trySwing(int action) {

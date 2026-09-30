@@ -26,9 +26,9 @@ import org.tastytrash.spatialGUI.util.RenderUtil.QuadBasis;
 public class MouseHandlerMixin {
 
     //? if <=1.21.1 {
-    /*@Shadow private double accumulatedDX;
+    @Shadow private double accumulatedDX;
     @Shadow private double accumulatedDY;
-    *///?}
+    //?}
 
     @Unique
     private static boolean shouldApplyMouseOverride() {
@@ -45,7 +45,7 @@ public class MouseHandlerMixin {
     }
 
     //? if >1.21.1 {
-    @ModifyReturnValue(method = "getScaledXPos*", at = @At("RETURN"))
+    /*@ModifyReturnValue(method = "getScaledXPos*", at = @At("RETURN"))
     private static double spatialGUI$modifyX(double original) {
         return overrideMousePosition(original, true);
     }
@@ -54,8 +54,8 @@ public class MouseHandlerMixin {
     private static double spatialGUI$modifyY(double original) {
         return overrideMousePosition(original, false);
     }
-    //?} else {
-    /*@ModifyExpressionValue(
+    *///?} else {
+    @ModifyExpressionValue(
             method = {"onPress", "onScroll", "handleAccumulatedMovement"},
             at = @At(value = "FIELD", target = "Lnet/minecraft/client/MouseHandler;xpos:D", opcode = Opcodes.GETFIELD)
     )
@@ -70,7 +70,7 @@ public class MouseHandlerMixin {
     private double spatialGUI$modifyRawY(double original) {
         return overrideRawPosition(original, false);
     }
-    *///?}
+    //?}
 
     @ModifyReturnValue(method = "xpos", at = @At("RETURN"))
     private double spatialGUI$modifyRawXpos(double original) {
@@ -143,9 +143,9 @@ public class MouseHandlerMixin {
     private void spatialGUI$cancelPlayerRotation(double mousea, CallbackInfo ci) {
         if (SpatialGUIRenderer.isCrosshairModeActive()) {
             //? if <=1.21.1 {
-            /*// 1.21.1 has no xrel/yrel in onMove, so hand over the accumulated deltas here.
+            // 1.21.1 has no xrel/yrel in onMove, so hand over the accumulated deltas here.
             MouseHandlerUtil.addFreeLookDelta(this.accumulatedDX, this.accumulatedDY);
-            *///?}
+            //?}
             ci.cancel();
         }
     }

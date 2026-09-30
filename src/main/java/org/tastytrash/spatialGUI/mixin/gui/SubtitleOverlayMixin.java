@@ -14,20 +14,20 @@ public class SubtitleOverlayMixin {
     private boolean wasSkipped;
 
     //? if >=26.1.2 {
-    @Inject(method = "extractRenderState", at = @At("HEAD"))
-    //?} else {
-    /*@Inject(method = "render", at = @At("HEAD"))
-     *///?}
+    /*@Inject(method = "extractRenderState", at = @At("HEAD"))
+    *///?} else {
+    @Inject(method = "render", at = @At("HEAD"))
+     //?}
     private void spatialGUI$skipWindowOverrideSubtitles(CallbackInfo ci) {
         wasSkipped = SpatialGUIRenderer.skipWindowOverride;
         SpatialGUIRenderer.skipWindowOverride = true;
     }
 
     //? if >=26.1.2 {
-    @Inject(method = "extractRenderState", at = @At("RETURN"))
-    //?} else {
-    /*@Inject(method = "render", at = @At("RETURN"))
-     *///?}
+    /*@Inject(method = "extractRenderState", at = @At("RETURN"))
+    *///?} else {
+    @Inject(method = "render", at = @At("RETURN"))
+     //?}
     private void spatialGUI$restoreWindowOverrideSubtitles(CallbackInfo ci) {
         SpatialGUIRenderer.skipWindowOverride = wasSkipped;
     }

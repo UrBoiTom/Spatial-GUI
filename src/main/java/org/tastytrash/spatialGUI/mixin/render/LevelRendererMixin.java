@@ -13,8 +13,8 @@ import org.tastytrash.spatialGUI.SpatialGUI;
 import org.tastytrash.spatialGUI.client.SpatialGUIClient;
 
 //? if <26.1.2 {
-/*import com.llamalad7.mixinextras.sugar.Local;
- *///?}
+import com.llamalad7.mixinextras.sugar.Local;
+ //?}
 
 @Mixin(LevelRenderer.class)
 public class LevelRendererMixin {
@@ -25,8 +25,8 @@ public class LevelRendererMixin {
             //?}
     private void diegeticInventory$renderScreen(CallbackInfo ci
             //? if <26.1.2 {
-            /*, @Local(argsOnly = true, ordinal = 0) Matrix4f modelViewMatrix
-            *///?}
+            , @Local(argsOnly = true, ordinal = 0) Matrix4f modelViewMatrix
+            //?}
     ) {
         var renderer = SpatialGUIClient.renderer();
         if (!SpatialGUI.config.enabled || renderer == null || !renderer.shouldCapture()) {
@@ -35,19 +35,19 @@ public class LevelRendererMixin {
 
         PoseStack poseStack = new PoseStack();
         //? if >=26.1.2 {
-        //? if >=26.2 {
-        /*var camera = Minecraft.getInstance().gameRenderer.getMainCamera();
-         *///?} else {
+        /*//? if >=26.2 {
+        /^var camera = Minecraft.getInstance().gameRenderer.getMainCamera();
+         ^///?} else {
         var camera = Minecraft.getInstance().gameRenderer.getMainCamera();
         //?}
         poseStack.mulPose(new Quaternionf()
-                .rotateX((float) Math.toRadians(camera.xRot()))
-                .rotateY((float) Math.toRadians(camera.yRot() + 180.0f))
+                .rotateX((float) Math.toRadians(camera.getXRot()))
+                .rotateY((float) Math.toRadians(camera.getYRot() + 180.0f))
                 .get(new Matrix4f())
         );
-        //?} else {
-        /*poseStack.mulPose(modelViewMatrix);
-         *///?}
+        *///?} else {
+        poseStack.mulPose(modelViewMatrix);
+         //?}
         renderer.renderInWorld(poseStack);
     }
 }
